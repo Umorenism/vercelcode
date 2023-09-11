@@ -1,163 +1,123 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
-import GlobalButton from "../../Component/Static/Button";
-import pic from './asset/pic.jpg'
-
+import react from 'react'
+import styled from 'styled-components';
+import { FiSearch } from 'react-icons/fi'
+// import vid from "../../asset/"
 
 
 const Hero = () => {
-
-
-  const Dev: string[] = [
-    "background-image:linear-gradient(to right, orange, purple); -webkit-background-clip:text;-webkit-text-fill-color:transparent",
-    "white",
-    "white"
-  ]
-
-  const Prev: string[] = [
-    "white",
-    "background-image:linear-gradient(to right, red, pink); -webkit-background-clip:text;-webkit-text-fill-color:transparent",
-    "white",
-
-  ]
-
-  const Shi: string[] = [
-    "white",
-    "white",
-    "background-image:linear-gradient(to right, yellow, orange); -webkit-background-clip:text;-webkit-text-fill-color:transparent"
-
-  ]
-
-  const Dev_ref: any = useRef()
-  const Prev_ref: any = useRef()
-  const Shi_ref: any = useRef()
-
-  const [Count, setCount] = useState(0)
-
-  useEffect(() => {
-    Dev_ref.current.style = Dev[Count % Dev.length]
-    Prev_ref.current.style = Prev[Count % Prev.length]
-    Shi_ref.current.style = Shi[Count % Shi.length]
-  })
-
-  useEffect(() => {
-    setInterval(() => {
-      setCount((el) => el + 1 / 2)
-    }, 3000)
-  }, []);
-
-
   return (
-    <div>
-      <Container>
-        <Develop>
-          <Deve ref={Dev_ref} >Develop.</Deve>
-          <Deve ref={Prev_ref} >Preview.</Deve>
-          <Deve ref={Shi_ref} >Ship.</Deve>
-        </Develop>
-        <P>Vercel's frontend cloud gives develop ers the frameworks, workflows,</P>
-        <P2>and infrastructure to build a faster, more personalized Web.</P2>
 
-        <ButtonHolder >
-          <Button >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 76 65"
-              fill="none" xmlns="http://www.w3.org/2000/svg"><path
-                d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000" /></svg>
+    <Container>
+      <Video></Video>
+      <Wrap>
+        <Button>
+          <Btn>Romance</Btn>
+          <Btn>Romance</Btn>
+          <Btn>Comdy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+          <Btn>Comedy</Btn>
+        </Button>
+        <H1>Explore the world’s leading Books
+          and Autors</H1>
+        <P>Millions of designers and agencies around the world showcase their portfolio work on Dribbble - the home to the world’s best design and creative professionals.</P>
 
-            Start Deploying</Button>
-          <Button1>Get Memo</Button1>
-        </ButtonHolder>
-      </Container>
-    </div>
+        <SearchHolder>
+          <FiSearch />
+          <Input placeholder='Search by Author Name' />
+        </SearchHolder>
+      </Wrap>
+    </Container>
   )
 }
 export default Hero;
-
-
-const Button1 = styled.div`
-background-color:white;
-height:40px;
-width:200px;
-padding:10px 30px;
-  color:black;
+const Wrap = styled.div`
+  height:100%;
+  width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
-  cursor:pointer;
-  border-radius:15px;
-  margin-right:40px;
+  flex-direction:column;
+`
+const Video = styled.video``
+
+const Input = styled.input`
+display: flex;
+flex:1;
+outline:none;
+border:none;
+margin-left:10px;
+font-size:20px;
+
+
+`
+const SearchHolder = styled.div`
+  height:50px;
+  width:30%;
+  border-radius:50px;
+  background-color:white;
+  margin-top:30px;
+  padding:10px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+  
+`;
+const P = styled.div`
+font-size:20px;
+font-weight:200;
+width:40%;
+text-align:center;
+color:white;
+margin-top:20px;
+
+`
+const H1 = styled.div`
+font-size:40px;
+font-weight:700;
+width:30%;
+text-align:center;
+color:white;
+margin-top:30px;
+
+`
+const Btn = styled.div`
+  height:20px;
+  width:50px;
+  padding:20px 40px;
+  background-color:black;
+  color:white;
+  border-radius:50px;
+  font-weight:600;
   &:hover{
     background-color:orange;
+    cursor:pointer;
+    border:1px solid gray;
   }
- 
-
 `
 const Button = styled.div`
-  background-color:blue;
-  height:40px;
-  width:200px;
-  padding:10px 30px;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  border-radius:15px;
-  margin-right:40px;
-  gap:20px;
-  &:hover{
-    background-color:orange;
-  }
- 
-
-`
-
-const ButtonHolder = styled.div`
+//  background-color:white;
+ height:100px;
+ width:95%;
  display:flex;
- margin-top:40px;
-
-`;
-const P2 = styled.div`
-  font-size:30px;
-  font-weight:600;
-  color:white;
-  width:60%;
-  padding-left:10px;
-`
-
-const P = styled.div`
-  font-size:30px;
-  font-weight:600;
-  color:white;
-  width:60%;
-`
-const Deve = styled.div`
-  font-size:100px;
-  font-weight:800;
-  // color:red;
-  &:hover{
-   cursor:pointer;
-  }
-`
-const Develop = styled.div`
-  display:flex;
-  margin-bottom:20px;
+ justify-content:space-around;
+ align-items:center;
  
-  
-  
-  
-`;
+`
 const Container = styled.div`
-height:80vh;
-width:100%;
-background-color:black;
-display:flex;
-align-items:center;
-color:white;
-justify-content:center;
-flex-direction:column;
-
-`;
+ height:80vh;
+ width:100%;
+ background-color:skyblue;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ 
+`
